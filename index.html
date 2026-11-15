@@ -34,7 +34,6 @@ h1{font-family:'Pacifico',cursive;font-weight:400;font-size:42px;line-height:1.1
 .num{font-size:34px;font-weight:700;line-height:1;color:#0b6e8a;font-variant-numeric:tabular-nums}
 .lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b8a96;margin-top:4px}
 #status{font-family:'Pacifico',cursive;font-size:26px;color:#fff;text-shadow:0 2px 0 #0b6e8a;margin-top:18px;min-height:40px}
-#flight{font-size:13px;font-weight:600;color:#0b3a4a;margin-top:2px}
 section{max-width:520px;margin:0 auto;padding:26px 16px}
 h2{font-family:'Pacifico',cursive;font-weight:400;font-size:26px;color:#e2793a;text-align:center;margin-bottom:4px}
 .sub{text-align:center;font-size:14px;color:#5b8a96;margin-bottom:16px}
@@ -48,7 +47,22 @@ h2{font-family:'Pacifico',cursive;font-weight:400;font-size:26px;color:#e2793a;t
 .card:nth-child(3n) svg{animation-delay:-2s}
 @keyframes bob{50%{transform:translateY(-5px)}}
 .name{font-weight:700;font-size:16px;margin-top:4px}
-.trait{font-size:12px;color:#5b8a96}
+.card{position:relative}
+.bubble{position:absolute;left:50%;top:-6px;transform:translate(-50%,-100%);background:#fff;border:2px solid #3fb3d6;color:#0b3a4a;font-size:13px;font-weight:600;line-height:1.3;padding:7px 10px;border-radius:14px;width:max-content;max-width:150px;z-index:5;box-shadow:0 4px 10px rgba(11,58,74,.15);animation:pop .3s ease-out,fade .6s ease-in 7.4s forwards;pointer-events:none}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-7px;border:7px solid transparent;border-top-color:#3fb3d6;border-bottom:0}
+@keyframes pop{from{transform:translate(-50%,-80%) scale(.6);opacity:0}}
+@keyframes fade{to{opacity:0;transform:translate(-50%,-120%)}}
+.toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0b3a4a;color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;max-width:90vw;z-index:20;animation:pop2 .3s ease-out,fade2 .5s ease-in 4.5s forwards;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+@keyframes pop2{from{opacity:0;transform:translate(-50%,20px)}}
+@keyframes fade2{to{opacity:0;transform:translate(-50%,20px)}}
+.who{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.who .chip{padding:6px 10px;font-size:13px}
+.who .chip.on::before{content:""}
+.send{display:flex;gap:8px}
+.send input{flex:1;min-width:0;font-family:inherit;font-size:15px;border:2px solid #cfe7ee;border-radius:999px;padding:10px 14px;color:#0b3a4a;outline:none}
+.send input:focus{border-color:#3fb3d6}
+.send button{font-family:inherit;font-size:15px;font-weight:700;color:#fff;background:#3fb3d6;border:none;border-radius:999px;padding:10px 16px;cursor:pointer}
+.hint{font-size:12px;color:#5b8a96;margin-top:6px;min-height:16px}
 .box{background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 0 #f0dcc0;margin-bottom:14px}
 .box h3{font-size:16px;font-weight:700;margin-bottom:10px}
 .ganas{display:flex;align-items:center;gap:14px}
@@ -93,7 +107,6 @@ footer{text-align:center;font-size:13px;color:#9a8a76;padding:10px 16px 40px}
     <div class="unit"><div class="num" id="s">--</div><div class="lbl">seg</div></div>
   </div>
   <div id="status"></div>
-  <div id="flight">Vuelo: domingo 14 de marzo, 2:34 a. m. (hora de Lima)</div>
   </div>
 
   <svg class="waves" viewBox="0 0 800 90" preserveAspectRatio="none" aria-hidden="true">
@@ -113,6 +126,16 @@ footer{text-align:center;font-size:13px;color:#9a8a76;padding:10px 16px 40px}
 <section>
   <h2>Preparativos</h2>
   <p class="sub">Lo que toques aquí lo ven todos</p>
+
+  <div class="box">
+    <h3>Mandar un globito</h3>
+    <div class="who" id="who"></div>
+    <form class="send" id="sendForm">
+      <input id="msg" maxlength="80" placeholder="¡Ya quiero estar en la playa!" autocomplete="off">
+      <button type="submit">Enviar</button>
+    </form>
+    <div class="hint" id="hint">Elige quién eres. Tu globito sale sobre tu dibujo unos segundos.</div>
+  </div>
 
   <div class="box">
     <h3>Ganas de playa</h3>
@@ -155,11 +178,11 @@ function tick(){
     const days=Math.floor((START-now)/DAY);
     $('status').textContent=days===0?"¡Hoy se vuela!":days<=7?"¡Ya casi! A hacer maletas":days<=30?"Menos de un mes":"";
   }else if(now<END){
-    $('count').style.display='none';$('flight').style.display='none';
+    $('count').style.display='none';
     const limaDay=Math.floor((now-5*3600000-Date.UTC(2027,2,14))/DAY)+1;
     $('status').textContent=limaDay>=8?"Último día en Punta Cana":"¡Día "+limaDay+" de 8 en Punta Cana!";
   }else{
-    $('count').style.display='none';$('flight').style.display='none';
+    $('count').style.display='none';
     $('status').textContent="Misión cumplida. ¡Vivan los novios!";
   }
 }
@@ -172,7 +195,13 @@ function hairBack({hair,style}){
     : style==='pony'?`<path d="M70 30 q16 6 10 30 q-4 10 -8 4 q6 -16 -6 -24z" fill="${hair}"/>`
     : style==='wavy'?`<path d="M25 40 q-6 14 0 26 q-4 8 5 14 l40 0 q9 -6 5 -14 q6 -12 0 -26 z" fill="${hair}"/>`:'';
 }
-function face({skin,hair,style,wink,laugh,beard,lash}){
+const PHOTOS={};
+let _clip=0;
+function photoFace(src){const id='clip'+(++_clip);return `<defs><clipPath id="${id}"><circle cx="50" cy="42" r="23"/></clipPath></defs><image href="${src}" x="27" y="19" width="46" height="46" clip-path="url(#${id})" preserveAspectRatio="xMidYMid slice"/><circle cx="50" cy="42" r="23" fill="none" stroke="#fff" stroke-width="2"/>`;}
+function face(o){
+  return window.__pid&&PHOTOS[window.__pid]?photoFace(PHOTOS[window.__pid]):drawnFace(o);
+}
+function drawnFace({skin,hair,style,wink,laugh,beard,lash}){
   const eyesOpen=`<circle cx="42" cy="40" r="2.6" fill="#2a1a12"/><circle cx="58" cy="40" r="2.6" fill="#2a1a12"/>`;
   const eyes=wink?`<path d="M38.5 40.5 q3.5 -3 7 0" stroke="#2a1a12" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="58" cy="40" r="2.6" fill="#2a1a12"/><path d="M53 33 q5 -4 10 -1" stroke="${hair}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`
     :laugh?`<path d="M38.5 41 q3.5 -4 7 0 M54.5 41 q3.5 -4 7 0" stroke="#2a1a12" stroke-width="2" fill="none" stroke-linecap="round"/>`:eyesOpen;
@@ -226,14 +255,12 @@ const people=[
    draw:()=>svg(hairBack({hair:'#4a2a18',style:'long'})+body({skin:SKIN.fair,shirt:'#9be3c7',pants:'#3a6f8f'})+face({skin:SKIN.fair,hair:'#4a2a18',style:'long',lash:true})+P.water())},
   {id:'jorge',name:'Jorge',trait:'Con su gaseosa',
    draw:()=>svg(body({skin:SKIN.fair,shirt:'#ffd166',pants:'#2f5d7c'})+face({skin:SKIN.fair,hair:'#3b2416',style:'short',beard:true})+P.soda)},
-  {id:'sandrita',name:'Sandrita',trait:'Con su agua',
-   draw:()=>svg(hairBack({hair:'#8a5a2b',style:'pony'})+body({skin:SKIN.fair,shirt:'#c7a6ff',pants:'#5b6bb0'})+face({skin:SKIN.fair,hair:'#8a5a2b',style:'pony',lash:true})+P.water('#8fe0ff'))},
   {id:'carlos',name:'Carlos',trait:'El divertido',
    draw:()=>svg(body({skin:SKIN.fair,shirt:'#ff9f43',pants:'#2f5d7c'})+face({skin:SKIN.fair,hair:'#3b2416',style:'curly',laugh:true})+P.shades+P.party)},
   {id:'flavia',name:'Flavia',trait:'Camiseta gunner',
    draw:()=>svg(hairBack({hair:'#2a1a12',style:'pony'})+body({skin:SKIN.fair,shirt:'#d81e2c',sleeve:'#ffffff',pants:'#ffffff'})+`<path d="M44 72 q6 5 12 0" stroke="#fff" stroke-width="2.5" fill="none"/><text x="50" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Quicksand">7</text>`+face({skin:SKIN.fair,hair:'#2a1a12',style:'pony',lash:true}))}
 ];
-const card=p=>`<div class="card">${p.draw()}<div class="name">${p.name}</div><div class="trait">${p.trait}</div></div>`;
+const card=p=>{window.__pid=p.id;const art=p.draw();window.__pid=null;return `<div class="card" id="card-${p.id}">${art}<div class="name">${p.name}</div></div>`;};
 $('novios').innerHTML=people.filter(p=>p.novio).map(card).join('');
 $('crew').innerHTML=people.filter(p=>!p.novio).map(card).join('');
 
@@ -251,14 +278,25 @@ function renderLista(){
   $('lista').innerHTML=ITEMS.map(([id,t])=>`<button class="item${lista[id]===true?' on':''}" data-id="${id}"><span class="ck"></span><span>${t}</span></button>`).join('');
 }
 renderMaletas();renderLista();
+let me=null;try{me=localStorage.getItem('pc_me')}catch(e){}
+function renderWho(){$('who').innerHTML=people.map(p=>`<button type="button" class="chip${me===p.id?' on':''}" data-id="${p.id}">${p.name}</button>`).join('');}
+renderWho();
+$('who').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;me=b.dataset.id;try{localStorage.setItem('pc_me',me)}catch(e){}renderWho();$('hint').textContent='Tu globito sale sobre tu dibujo unos segundos.';});
+function showBubble(quien,texto){
+  const c=document.getElementById('card-'+quien);const p=people.find(x=>x.id===quien);if(!c||!p)return;
+  c.querySelectorAll('.bubble').forEach(b=>b.remove());
+  const b=document.createElement('div');b.className='bubble';b.textContent=texto;c.appendChild(b);setTimeout(()=>b.remove(),8200);
+  document.querySelectorAll('.toast').forEach(t=>t.remove());
+  const t=document.createElement('div');t.className='toast';t.textContent=p.name+': '+texto;document.body.appendChild(t);setTimeout(()=>t.remove(),5100);
+}
 
-window.TRIP={people,ITEMS,renderMaletas,renderLista,setM:v=>{maletas=v},setL:v=>{lista=v},getM:()=>maletas,getL:()=>lista};
+window.TRIP={people,ITEMS,renderMaletas,renderLista,showBubble,getMe:()=>me,setM:v=>{maletas=v},setL:v=>{lista=v},getM:()=>maletas,getL:()=>lista};
 </script>
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getFirestore,doc,onSnapshot,setDoc,increment,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getFirestore,doc,onSnapshot,setDoc,increment,serverTimestamp,collection,addDoc,query,orderBy,limit} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const {people,ITEMS,renderMaletas,renderLista}=window.TRIP;
+const {people,ITEMS,renderMaletas,renderLista,showBubble,getMe}=window.TRIP;
 const $=id=>document.getElementById(id);const note=$("note");let ganas=0,ganasShown=false;
 const app=initializeApp({
   apiKey:"AIzaSyBOmnkXGKsumkihLhZ9IFmfblY-RMw5B0U",
@@ -280,6 +318,28 @@ onSnapshot(rLista,s=>{lista=s.data()||{};renderLista();});
 $('ganasBtn').addEventListener('click',()=>{setDoc(rGanas,{n:increment(1),t:serverTimestamp()},{merge:true}).then(ok,fail);});
 $('maletas').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const id=b.dataset.id;setDoc(rMaletas,{[id]:maletas[id]!==true},{merge:true}).then(ok,fail);});
 $('lista').addEventListener('click',e=>{const b=e.target.closest('.item');if(!b)return;const id=b.dataset.id;setDoc(rLista,{[id]:lista[id]!==true},{merge:true}).then(ok,fail);});
+
+const globos=collection(db,"globos");
+const loadedAt=Date.now();
+onSnapshot(query(globos,orderBy("t","desc"),limit(10)),snap=>{
+  snap.docChanges().reverse().forEach(ch=>{
+    if(ch.type!=="added")return;
+    const d=ch.doc.data();const ts=d.t&&d.t.toMillis?d.t.toMillis():Date.now();
+    if(ts<loadedAt-20000)return;
+    showBubble(d.quien,String(d.texto||"").slice(0,80));
+  });
+});
+let lastSend=0;
+$('sendForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const me=getMe(),inp=$('msg'),txt=inp.value.trim();
+  if(!me){$('hint').textContent='Primero toca tu nombre.';return;}
+  if(!txt){$('hint').textContent='Escribe algo primero.';return;}
+  if(Date.now()-lastSend<3000)return;lastSend=Date.now();
+  inp.value='';
+  addDoc(globos,{quien:me,texto:txt.slice(0,80),t:serverTimestamp()}).then(()=>{$('hint').textContent='';},()=>{$('hint').textContent='No se pudo enviar. Intenta otra vez.';inp.value=txt;});
+});
+$('msg').addEventListener('input',()=>{if($('hint').textContent.startsWith('Escribe'))$('hint').textContent='';});
 </script>
 </body>
 </html>
