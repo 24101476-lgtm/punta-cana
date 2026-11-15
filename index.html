@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rumbo a Punta Cana · Despedida de Diana y Rodri</title>
+<meta name="description" content="Cuenta regresiva para la despedida de soltera de Diana y Rodri en Punta Cana. 14 al 21 de marzo.">
+<meta property="og:title" content="Rumbo a Punta Cana · Despedida de Diana y Rodri">
+<meta property="og:description" content="Cuenta regresiva para la despedida en Punta Cana. 14 al 21 de marzo.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Quicksand',sans-serif;color:#0b3a4a;background:#fdf6e9;overflow-x:hidden}
+.hero{position:relative;background:linear-gradient(#ffb36b 0%,#ffd59a 35%,#8fd8f0 62%,#3fb3d6 100%);padding:34px 16px 120px;text-align:center;overflow:hidden}
+.sun{position:absolute;left:50%;top:150px;width:150px;height:150px;margin-left:-75px;border-radius:50%;background:#ffe27a;box-shadow:0 0 60px 20px rgba(255,214,102,.6);animation:sun 6s ease-in-out infinite}
+@keyframes sun{50%{transform:translateY(-6px) scale(1.03)}}
+.palm{position:absolute;bottom:60px;width:120px;opacity:.95}
+.palm.l{left:-18px}.palm.r{right:-18px;transform:scaleX(-1)}
+.leaves{transform-origin:60px 40px;animation:sway 4s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(4deg)}}
+.waves{position:absolute;left:0;right:0;bottom:0;height:90px}
+.wave{animation:wave 7s linear infinite}
+.wave2{animation:wave 11s linear infinite reverse}
+@keyframes wave{to{transform:translateX(-200px)}}
+.hero .content{position:relative;z-index:1}
+.waves{z-index:0}
+.kicker{font-weight:700;letter-spacing:3px;font-size:12px;text-transform:uppercase;color:#7a3b12}
+h1{font-family:'Pacifico',cursive;font-weight:400;font-size:42px;line-height:1.15;color:#fff;text-shadow:0 3px 0 #e2793a,0 6px 14px rgba(120,50,10,.25);margin:6px 0 4px}
+.couple{font-size:17px;font-weight:700;color:#7a3b12}
+.dates{display:inline-block;margin-top:10px;background:rgba(255,255,255,.75);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;color:#0b3a4a}
+.count{display:flex;justify-content:center;gap:8px;margin:26px auto 0;max-width:420px}
+.unit{flex:1;background:rgba(255,255,255,.88);border-radius:16px;padding:12px 4px 10px;box-shadow:0 6px 0 rgba(11,58,74,.12)}
+.num{font-size:34px;font-weight:700;line-height:1;color:#0b6e8a;font-variant-numeric:tabular-nums}
+.lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b8a96;margin-top:4px}
+#status{font-family:'Pacifico',cursive;font-size:26px;color:#fff;text-shadow:0 2px 0 #0b6e8a;margin-top:18px;min-height:40px}
+#flight{font-size:13px;font-weight:600;color:#0b3a4a;margin-top:2px}
+section{max-width:520px;margin:0 auto;padding:26px 16px}
+h2{font-family:'Pacifico',cursive;font-weight:400;font-size:26px;color:#e2793a;text-align:center;margin-bottom:4px}
+.sub{text-align:center;font-size:14px;color:#5b8a96;margin-bottom:16px}
+.novios{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.crew{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.crew .card{width:calc((100% - 20px)/3)}
+.card{background:#fff;border-radius:18px;padding:10px 6px 12px;text-align:center;box-shadow:0 4px 0 #f0dcc0}
+.novios .card{background:#fff4f8;box-shadow:0 4px 0 #f6c9da}
+.card svg{width:100%;max-width:120px;height:auto;display:block;margin:0 auto;animation:bob 3s ease-in-out infinite}
+.card:nth-child(2n) svg{animation-delay:-1.2s}
+.card:nth-child(3n) svg{animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.name{font-weight:700;font-size:16px;margin-top:4px}
+.trait{font-size:12px;color:#5b8a96}
+.box{background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 0 #f0dcc0;margin-bottom:14px}
+.box h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.ganas{display:flex;align-items:center;gap:14px}
+.ganas .big{font-size:40px;font-weight:700;color:#0b6e8a;min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.ganas .big.bump{animation:bump .45s ease}
+@keyframes bump{40%{transform:scale(1.3);color:#e2793a}}
+button.main{flex:1;font-family:inherit;font-size:16px;font-weight:700;color:#fff;background:#e2793a;border:none;border-radius:999px;padding:14px 18px;cursor:pointer;box-shadow:0 4px 0 #b55a24}
+button.main:active{transform:translateY(3px);box-shadow:0 1px 0 #b55a24}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:inherit;font-size:14px;font-weight:600;border:2px solid #cfe7ee;background:#fff;color:#0b3a4a;border-radius:999px;padding:8px 12px;cursor:pointer}
+.chip.on{background:#0b6e8a;border-color:#0b6e8a;color:#fff}
+.chip.on::before{content:"✓ "}
+.progress{font-size:13px;color:#5b8a96;margin-top:10px}
+.bar{height:8px;background:#eef6f8;border-radius:99px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:#3fb3d6;width:0;transition:width .4s}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item{display:flex;align-items:center;gap:8px;font-family:inherit;font-size:14px;font-weight:600;text-align:left;background:#fdf6e9;border:none;border-radius:12px;padding:10px;cursor:pointer;color:#0b3a4a}
+.item .ck{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid #e2b98c;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+.item.on .ck{background:#2fa36b;border-color:#2fa36b}
+.item.on .ck::after{content:"✓"}
+.item.on span{text-decoration:line-through;color:#7a9aa2}
+.note{font-size:12px;color:#c0563a;text-align:center;min-height:16px;margin-top:6px}
+footer{text-align:center;font-size:13px;color:#9a8a76;padding:10px 16px 40px}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="sun"></div>
+  <svg class="palm l" viewBox="0 0 120 220" aria-hidden="true"><path d="M58 220 C62 170 66 120 62 44" stroke="#8a5a2b" stroke-width="9" fill="none" stroke-linecap="round"/><g class="leaves" fill="#2f9e5a"><path d="M62 44 C40 20 12 26 0 44 C22 34 42 38 62 44Z"/><path d="M62 44 C70 14 100 6 120 18 C96 20 80 30 62 44Z"/><path d="M62 44 C30 40 14 66 14 86 C28 64 44 54 62 44Z"/><path d="M62 44 C90 38 112 58 116 80 C98 62 82 52 62 44Z"/><path d="M62 44 C58 18 70 0 84 -4 C74 12 68 28 62 44Z"/></g><circle cx="58" cy="50" r="6" fill="#7a4a1d"/><circle cx="68" cy="52" r="6" fill="#7a4a1d"/></svg>
+  <svg class="palm r" viewBox="0 0 120 220" aria-hidden="true"><path d="M58 220 C62 170 66 120 62 44" stroke="#8a5a2b" stroke-width="9" fill="none" stroke-linecap="round"/><g class="leaves" fill="#2f9e5a"><path d="M62 44 C40 20 12 26 0 44 C22 34 42 38 62 44Z"/><path d="M62 44 C70 14 100 6 120 18 C96 20 80 30 62 44Z"/><path d="M62 44 C30 40 14 66 14 86 C28 64 44 54 62 44Z"/><path d="M62 44 C90 38 112 58 116 80 C98 62 82 52 62 44Z"/></g></svg>
+
+  <div class="content">
+  <div class="kicker">Despedida de soltera</div>
+  <h1>Rumbo a<br>Punta Cana</h1>
+  <div class="couple">Diana y Rodri</div>
+  <div class="dates">Domingo 14 al domingo 21 de marzo</div>
+
+  <div class="count" id="count">
+    <div class="unit"><div class="num" id="d">--</div><div class="lbl">días</div></div>
+    <div class="unit"><div class="num" id="h">--</div><div class="lbl">horas</div></div>
+    <div class="unit"><div class="num" id="m">--</div><div class="lbl">min</div></div>
+    <div class="unit"><div class="num" id="s">--</div><div class="lbl">seg</div></div>
+  </div>
+  <div id="status"></div>
+  <div id="flight">Vuelo: domingo 14 de marzo, 2:34 a. m. (hora de Lima)</div>
+  </div>
+
+  <svg class="waves" viewBox="0 0 800 90" preserveAspectRatio="none" aria-hidden="true">
+    <g class="wave2"><path d="M0 40 Q50 25 100 40 T200 40 T300 40 T400 40 T500 40 T600 40 T700 40 T800 40 T900 40 T1000 40 V90 H0Z" fill="#7fd0e6" opacity=".7"/></g>
+    <g class="wave"><path d="M0 55 Q50 40 100 55 T200 55 T300 55 T400 55 T500 55 T600 55 T700 55 T800 55 T900 55 T1000 55 V90 H0Z" fill="#f6e3c3"/></g>
+    <rect y="70" width="800" height="20" fill="#fdf6e9"/>
+  </svg>
+</div>
+
+<section>
+  <h2>La tripulación</h2>
+  <p class="sub">Los que se van a Punta Cana</p>
+  <div class="novios" id="novios"></div>
+  <div class="crew" id="crew"></div>
+</section>
+
+<section>
+  <h2>Preparativos</h2>
+  <p class="sub">Lo que toques aquí lo ven todos</p>
+
+  <div class="box">
+    <h3>Ganas de playa</h3>
+    <div class="ganas">
+      <div class="big" id="ganas">…</div>
+      <button class="main" id="ganasBtn">¡Quiero playa ya!</button>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>¿Quién ya tiene la maleta lista?</h3>
+    <div class="chips" id="maletas"></div>
+    <div class="progress" id="maletasTxt"></div>
+    <div class="bar"><i id="maletasBar"></i></div>
+  </div>
+
+  <div class="box">
+    <h3>Lista para no olvidar nada</h3>
+    <div class="items" id="lista"></div>
+  </div>
+  <p class="note" id="note"></p>
+</section>
+
+<footer>Que lo que pase en Punta Cana se quede en Punta Cana</footer>
+
+<script>
+const START=Date.UTC(2027,2,14,7,34);
+const END=Date.UTC(2027,2,22,5,0);
+const DAY=86400000;
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+function tick(){
+  const now=Date.now();
+  if(now<START){
+    let t=Math.floor((START-now)/1000);
+    $('d').textContent=Math.floor(t/86400);t%=86400;
+    $('h').textContent=pad(Math.floor(t/3600));t%=3600;
+    $('m').textContent=pad(Math.floor(t/60));
+    $('s').textContent=pad(t%60);
+    const days=Math.floor((START-now)/DAY);
+    $('status').textContent=days===0?"¡Hoy se vuela!":days<=7?"¡Ya casi! A hacer maletas":days<=30?"Menos de un mes":"";
+  }else if(now<END){
+    $('count').style.display='none';$('flight').style.display='none';
+    const limaDay=Math.floor((now-5*3600000-Date.UTC(2027,2,14))/DAY)+1;
+    $('status').textContent=limaDay>=8?"Último día en Punta Cana":"¡Día "+limaDay+" de 8 en Punta Cana!";
+  }else{
+    $('count').style.display='none';$('flight').style.display='none';
+    $('status').textContent="Misión cumplida. ¡Vivan los novios!";
+  }
+}
+tick();setInterval(tick,1000);
+
+/* ---------- caricaturas ---------- */
+const SKIN={fair:'#ffe0c7',tan:'#f2c49c'};
+function hairBack({hair,style}){
+  return style==='long'?`<path d="M26 40 q-4 30 4 44 l40 0 q8 -14 4 -44 z" fill="${hair}"/>`
+    : style==='pony'?`<path d="M70 30 q16 6 10 30 q-4 10 -8 4 q6 -16 -6 -24z" fill="${hair}"/>`
+    : style==='wavy'?`<path d="M25 40 q-6 14 0 26 q-4 8 5 14 l40 0 q9 -6 5 -14 q6 -12 0 -26 z" fill="${hair}"/>`:'';
+}
+function face({skin,hair,style,wink,laugh,beard,lash}){
+  const eyesOpen=`<circle cx="42" cy="40" r="2.6" fill="#2a1a12"/><circle cx="58" cy="40" r="2.6" fill="#2a1a12"/>`;
+  const eyes=wink?`<path d="M38.5 40.5 q3.5 -3 7 0" stroke="#2a1a12" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="58" cy="40" r="2.6" fill="#2a1a12"/><path d="M53 33 q5 -4 10 -1" stroke="${hair}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`
+    :laugh?`<path d="M38.5 41 q3.5 -4 7 0 M54.5 41 q3.5 -4 7 0" stroke="#2a1a12" stroke-width="2" fill="none" stroke-linecap="round"/>`:eyesOpen;
+  const lashes=lash?`<path d="M38.5 37.5 l-2 -2 M45.5 37.5 l2 -2 M54.5 37.5 l-2 -2 M61.5 37.5 l2 -2" stroke="#2a1a12" stroke-width="1.3" stroke-linecap="round"/>`:'';
+  const mouth=laugh?`<path d="M41 49 q9 12 18 0 z" fill="#8a2a2a"/><path d="M44 52 q6 4 12 0" fill="#ff8a8a"/>`
+    :wink?`<path d="M43 50 q8 6 15 -1" stroke="#8a2a2a" stroke-width="2.2" fill="none" stroke-linecap="round"/>`
+    :`<path d="M43 49 q7 6 14 0" stroke="#8a2a2a" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+  const beardSvg=beard?`<path d="M29 44 q0 22 21 24 q21 -2 21 -24 q-4 10 -21 10 q-17 0 -21 -10z" fill="${hair}" opacity=".9"/>`:'';
+  const front = style==='short'?`<path d="M28 36 q2 -20 22 -20 q20 0 22 20 q-6 -10 -22 -9 q-14 0 -22 9z" fill="${hair}"/>`
+    : style==='curly'?`<g fill="${hair}"><circle cx="32" cy="28" r="7"/><circle cx="41" cy="21" r="7.5"/><circle cx="51" cy="19" r="8"/><circle cx="61" cy="21" r="7.5"/><circle cx="69" cy="28" r="7"/></g>`
+    : style==='side'?`<path d="M28 38 q0 -24 24 -22 q20 2 20 20 q-10 -10 -30 -6 q-8 2 -14 8z" fill="${hair}"/>`
+    : `<path d="M27 40 q0 -26 24 -25 q22 1 22 25 q-6 -14 -24 -14 q-14 0 -22 14z" fill="${hair}"/>`;
+  return `<circle cx="50" cy="42" r="23" fill="${skin}"/>`+beardSvg+front+eyes+lashes+`<circle cx="37" cy="47" r="3.2" fill="#ff9aa8" opacity=".55"/><circle cx="63" cy="47" r="3.2" fill="#ff9aa8" opacity=".55"/>`+mouth;
+}
+function body({skin,shirt,sleeve,pants='#2f5d7c',suit,dress}){
+  const sl=sleeve||shirt;
+  let b=dress?`<path d="M30 108 h40 l10 30 h-60z" fill="${dress}" stroke="#f1d6e2" stroke-width="1"/><circle cx="44" cy="140" r="3" fill="#ff9aa8"/><circle cx="56" cy="140" r="3" fill="#ff9aa8"/>`:`<path d="M38 112 l-2 26 h11 l3 -24 l3 24 h11 l-2 -26z" fill="${pants}" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  <path d="M32 72 q18 -8 36 0 l4 42 q-22 6 -44 0z" fill="${shirt}" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+  <path d="M32 72 q-10 4 -14 22 l9 3 q3 -10 9 -14z" fill="${sl}" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+  <path d="M68 72 q10 4 14 22 l-9 3 q-3 -10 -9 -14z" fill="${sl}" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+  <circle cx="22" cy="97" r="5" fill="${skin}"/><circle cx="78" cy="97" r="5" fill="${skin}"/>
+  <path d="M44 66 h12 v7 q-6 4 -12 0z" fill="${skin}"/>`;
+  if(suit)b+=`<path d="M45 70 l5 14 l5 -14 z" fill="#fff"/><path d="M48.5 74 h3 l1 12 l-2.5 3 l-2.5 -3z" fill="#9b1c31"/><path d="M45 70 l-5 6 l8 10z M55 70 l5 6 l-8 10z" fill="#2b2f45"/>`;
+  return b;
+}
+const P={
+  cocktail:`<g transform="translate(70,62)"><path d="M2 8 h18 l-3 16 h-12z" fill="#ff7a59" opacity=".9"/><path d="M3 10 h16 l-1 5 h-14z" fill="#ffc94d"/><rect x="9.5" y="24" width="3" height="10" fill="#cfe8f0"/><rect x="5" y="33" width="12" height="2.5" rx="1" fill="#cfe8f0"/><path d="M14 8 l8 -12" stroke="#2fa36b" stroke-width="1.6"/><path d="M12 -6 q10 -4 16 4 z" fill="#ff5c8a"/><circle cx="5" cy="8" r="3.5" fill="#ffe27a"/></g>`,
+  water:(c='#5ec8f0')=>`<g transform="translate(72,74)"><rect x="2" y="6" width="12" height="28" rx="4" fill="${c}" opacity=".55" stroke="#2a9fd0" stroke-width="1.3"/><rect x="4" y="0" width="8" height="6" rx="1.5" fill="#2a9fd0"/><rect x="2" y="16" width="12" height="7" fill="#fff" opacity=".8"/><path d="M4 26 q4 -2 8 0" stroke="#fff" stroke-width="1.2" fill="none"/></g>`,
+  soda:`<g transform="translate(72,70)"><path d="M6 0 h6 v6 q4 4 3 10 q-2 4 0 8 q2 6 -1 14 h-10 q-3 -8 -1 -14 q2 -4 0 -8 q-1 -6 3 -10z" fill="#3a1a12" stroke="#d81e2c" stroke-width="1.2"/><rect x="2.6" y="18" width="12.8" height="7" fill="#d81e2c"/><path d="M4 21.5 q5 -3 10 0" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="5.5" y="-2" width="7" height="3" rx="1" fill="#d81e2c"/></g>`,
+  jager:`<g transform="translate(70,64)"><rect x="8" y="0" width="6" height="8" fill="#123a24"/><rect x="7.5" y="-2" width="7" height="3" rx="1" fill="#c8a24a"/><path d="M2 12 q0 -4 9 -4 q9 0 9 4 v24 q0 3 -3 3 h-12 q-3 0 -3 -3z" fill="#174d2e"/><rect x="3.5" y="16" width="15" height="13" rx="2" fill="#e8742a"/><circle cx="11" cy="22.5" r="4" fill="none" stroke="#f7d38a" stroke-width="1.2"/></g>`,
+  rose:`<g transform="translate(72,72)"><path d="M6 6 q2 14 -2 30" stroke="#2f9e5a" stroke-width="2" fill="none"/><path d="M5 18 q-8 -2 -8 -8 q6 0 8 6" fill="#2f9e5a"/><circle cx="6" cy="4" r="6" fill="#e0245e"/><path d="M3 4 q3 -3 6 0 q-3 3 -6 0" fill="#ff7aa2"/></g>
+    <g fill="#ff5c8a"><path d="M80 18 c-2 -3 -7 -1 -5 3 l5 5 l5 -5 c2 -4 -3 -6 -5 -3z"/><path d="M88 32 c-1.4 -2 -5 -.7 -3.6 2 l3.6 3.5 l3.6 -3.5 c1.4 -2.7 -2.2 -4 -3.6 -2z" opacity=".8"/></g>`,
+  party:`<g transform="translate(50,6)"><path d="M-8 14 l8 -24 l8 24z" fill="#ffc94d"/><path d="M-5 5 l10 0 M-3 -1 l6 0" stroke="#ff5c8a" stroke-width="2"/><circle cy="-11" r="3" fill="#ff5c8a"/></g>
+    <text x="84" y="26" font-size="10" font-weight="700" fill="#e2793a" font-family="Quicksand">ja</text><text x="8" y="22" font-size="9" font-weight="700" fill="#e2793a" font-family="Quicksand">ja</text>`,
+  veil:`<path d="M30 30 q-14 30 -10 74 q30 10 60 0 q4 -44 -10 -74 q-20 -10 -40 0z" fill="#fff" opacity=".75" stroke="#f1d6e2" stroke-width="1"/>`,
+  tiara:`<path d="M38 22 l4 -7 l4 5 l4 -8 l4 8 l4 -5 l4 7z" fill="#f4c542" stroke="#d9a520" stroke-width=".8"/><circle cx="50" cy="13" r="1.8" fill="#ff7aa2"/>`,
+  sash:`<path d="M34 74 l34 36 l-5 4 l-33 -34z" fill="#ff5c8a"/><text x="0" y="0" font-size="6.5" font-weight="700" fill="#fff" font-family="Quicksand" transform="translate(38 82) rotate(47)">NOVIA</text>`,
+  shades:`<g transform="translate(36,24)"><rect x="0" y="0" width="11" height="6" rx="2.5" fill="#1d3b4a"/><rect x="17" y="0" width="11" height="6" rx="2.5" fill="#1d3b4a"/><path d="M11 3 h6" stroke="#1d3b4a" stroke-width="1.5"/></g>`
+};
+function svg(inner){return `<svg viewBox="0 0 100 145" aria-hidden="true">${inner}</svg>`;}
+const people=[
+  {id:'diana',name:'Diana',trait:'La novia',novio:true,
+   draw:()=>svg(P.veil+hairBack({hair:'#6b3d22',style:'long'})+body({skin:SKIN.fair,shirt:'#ffffff',dress:'#ffffff'})+P.sash+face({skin:SKIN.fair,hair:'#6b3d22',style:'long',lash:true})+P.tiara)},
+  {id:'rodri',name:'Rodri',trait:'El novio, de terno',novio:true,
+   draw:()=>svg(body({skin:SKIN.fair,shirt:'#2b2f45',sleeve:'#2b2f45',pants:'#2b2f45',suit:true})+face({skin:SKIN.fair,hair:'#2a1a12',style:'short'})+P.jager)},
+  {id:'magra',name:'Magra',trait:'Con su trago',
+   draw:()=>svg(hairBack({hair:'#c98b3c',style:'wavy'})+body({skin:SKIN.fair,shirt:'#ff8fb1',pants:'#4d7ea8'})+face({skin:SKIN.fair,hair:'#c98b3c',style:'wavy',lash:true})+P.cocktail)},
+  {id:'eduardo',name:'Eduardo',trait:'El coqueto',
+   draw:()=>svg(body({skin:SKIN.tan,shirt:'#3fb3d6',pants:'#f2e3c6'})+face({skin:SKIN.tan,hair:'#2a1a12',style:'side',wink:true})+P.rose)},
+  {id:'sandra',name:'Sandra',trait:'Con su agua',
+   draw:()=>svg(hairBack({hair:'#4a2a18',style:'long'})+body({skin:SKIN.fair,shirt:'#9be3c7',pants:'#3a6f8f'})+face({skin:SKIN.fair,hair:'#4a2a18',style:'long',lash:true})+P.water())},
+  {id:'jorge',name:'Jorge',trait:'Con su gaseosa',
+   draw:()=>svg(body({skin:SKIN.fair,shirt:'#ffd166',pants:'#2f5d7c'})+face({skin:SKIN.fair,hair:'#3b2416',style:'short',beard:true})+P.soda)},
+  {id:'sandrita',name:'Sandrita',trait:'Con su agua',
+   draw:()=>svg(hairBack({hair:'#8a5a2b',style:'pony'})+body({skin:SKIN.fair,shirt:'#c7a6ff',pants:'#5b6bb0'})+face({skin:SKIN.fair,hair:'#8a5a2b',style:'pony',lash:true})+P.water('#8fe0ff'))},
+  {id:'carlos',name:'Carlos',trait:'El divertido',
+   draw:()=>svg(body({skin:SKIN.fair,shirt:'#ff9f43',pants:'#2f5d7c'})+face({skin:SKIN.fair,hair:'#3b2416',style:'curly',laugh:true})+P.shades+P.party)},
+  {id:'flavia',name:'Flavia',trait:'Camiseta gunner',
+   draw:()=>svg(hairBack({hair:'#2a1a12',style:'pony'})+body({skin:SKIN.fair,shirt:'#d81e2c',sleeve:'#ffffff',pants:'#ffffff'})+`<path d="M44 72 q6 5 12 0" stroke="#fff" stroke-width="2.5" fill="none"/><text x="50" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Quicksand">7</text>`+face({skin:SKIN.fair,hair:'#2a1a12',style:'pony',lash:true}))}
+];
+const card=p=>`<div class="card">${p.draw()}<div class="name">${p.name}</div><div class="trait">${p.trait}</div></div>`;
+$('novios').innerHTML=people.filter(p=>p.novio).map(card).join('');
+$('crew').innerHTML=people.filter(p=>!p.novio).map(card).join('');
+
+/* ---------- preparativos (Firebase) ---------- */
+const ITEMS=[['pasaporte','Pasaporte'],['bloqueador','Bloqueador'],['traje','Traje de baño'],['lentes','Lentes de sol'],['sombrero','Sombrero o gorra'],['sandalias','Sandalias'],['cargador','Cargador'],['dolares','Dólares'],['repelente','Repelente'],['outfit','Outfit de despedida']];
+let maletas={},lista={},ganas=0,ganasShown=false;
+const note=$('note');
+function renderMaletas(){
+  $('maletas').innerHTML=people.map(p=>`<button class="chip${maletas[p.id]===true?' on':''}" data-id="${p.id}">${p.name}</button>`).join('');
+  const n=people.filter(p=>maletas[p.id]===true).length;
+  $('maletasTxt').textContent=n===people.length?"¡Todos listos para volar!":n+" de "+people.length+" con la maleta lista";
+  $('maletasBar').style.width=(n/people.length*100)+'%';
+}
+function renderLista(){
+  $('lista').innerHTML=ITEMS.map(([id,t])=>`<button class="item${lista[id]===true?' on':''}" data-id="${id}"><span class="ck"></span><span>${t}</span></button>`).join('');
+}
+renderMaletas();renderLista();
+
+window.TRIP={people,ITEMS,renderMaletas,renderLista,setM:v=>{maletas=v},setL:v=>{lista=v},getM:()=>maletas,getL:()=>lista};
+</script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,doc,onSnapshot,setDoc,increment,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const {people,ITEMS,renderMaletas,renderLista}=window.TRIP;
+const $=id=>document.getElementById(id);const note=$("note");let ganas=0,ganasShown=false;
+const app=initializeApp({
+  apiKey:"AIzaSyBOmnkXGKsumkihLhZ9IFmfblY-RMw5B0U",
+  authDomain:"punta-cana-despedida.firebaseapp.com",
+  projectId:"punta-cana-despedida",
+  storageBucket:"punta-cana-despedida.firebasestorage.app",
+  messagingSenderId:"876381382343",
+  appId:"1:876381382343:web:3f837bb6762a1bffc6c0e2"
+});
+const db=getFirestore(app);
+const rGanas=doc(db,"viaje","ganas"),rMaletas=doc(db,"viaje","maletas"),rLista=doc(db,"viaje","lista");
+const fail=()=>{note.textContent="No se pudo guardar. Revisa tu conexión e intenta otra vez.";};
+const ok=()=>{note.textContent="";};
+
+onSnapshot(rGanas,s=>{const n=Number((s.data()||{}).n)||0;const el=$('ganas');el.textContent=n;if(ganasShown&&n>ganas){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');}ganas=n;ganasShown=true;},()=>{$('ganas').textContent='?';});
+onSnapshot(rMaletas,s=>{maletas=s.data()||{};renderMaletas();});
+onSnapshot(rLista,s=>{lista=s.data()||{};renderLista();});
+
+$('ganasBtn').addEventListener('click',()=>{setDoc(rGanas,{n:increment(1),t:serverTimestamp()},{merge:true}).then(ok,fail);});
+$('maletas').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const id=b.dataset.id;setDoc(rMaletas,{[id]:maletas[id]!==true},{merge:true}).then(ok,fail);});
+$('lista').addEventListener('click',e=>{const b=e.target.closest('.item');if(!b)return;const id=b.dataset.id;setDoc(rLista,{[id]:lista[id]!==true},{merge:true}).then(ok,fail);});
+</script>
+</body>
+</html>
