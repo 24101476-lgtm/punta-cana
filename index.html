@@ -307,9 +307,9 @@ function renderWho(){$('who').innerHTML=people.map(p=>`<button type="button" cla
 renderWho();
 $('who').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;me=b.dataset.id;try{localStorage.setItem('pc_me',me)}catch(e){}renderWho();$('hint').textContent='Tu globito sale sobre tu dibujo unos segundos.';});
 
-const RAIN={diana:'💍',rodri:'🏎️',magra:'🍹',eduardo:'🧚',sandra:'💗',jorge:'🥤',carlos:'🥳',angy:'😈',flavia:'⚽'};
-function lluvia(id){const em=RAIN[id];if(!em)return;const n=window.innerWidth<600?28:45;
-for(let i=0;i<n;i++){const d=document.createElement('div');d.className='rain';d.textContent=em;
+const RAIN={diana:'💍',rodri:'🏎️',magra:'🍹',eduardo:'🧚',sandra:'💗',jorge:'🥤',carlos:'🥳',angy:'😈',flavia:'⚽',playa:['🏖️','🌴','☀️','🌊','🐚']};
+function lluvia(id){const set=RAIN[id];if(!set)return;const n=window.innerWidth<600?28:45;
+for(let i=0;i<n;i++){const d=document.createElement('div');d.className='rain';d.textContent=Array.isArray(set)?set[Math.floor(Math.random()*set.length)]:set;
 d.style.left=(Math.random()*100)+'vw';d.style.fontSize=(22+Math.random()*26)+'px';
 d.style.setProperty('--r',(Math.random()*720-360)+'deg');
 d.style.animationDuration=(2.2+Math.random()*2.3)+'s';d.style.animationDelay=(Math.random()*1.2)+'s';
@@ -344,7 +344,7 @@ const rGanas=doc(db,"viaje","ganas"),rMaletas=doc(db,"viaje","maletas"),rLista=d
 const fail=()=>{note.textContent="No se pudo guardar. Revisa tu conexión e intenta otra vez.";};
 const ok=()=>{note.textContent="";};
 
-onSnapshot(rGanas,s=>{const n=Number((s.data()||{}).n)||0;const el=$('ganas');el.textContent=n;if(ganasShown&&n>ganas){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');}ganas=n;ganasShown=true;},()=>{$('ganas').textContent='?';});
+onSnapshot(rGanas,s=>{const n=Number((s.data()||{}).n)||0;const el=$('ganas');el.textContent=n;if(ganasShown&&n>ganas){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');if(typeof lluvia==='function')lluvia('playa');}ganas=n;ganasShown=true;},()=>{$('ganas').textContent='?';});
 onSnapshot(rMaletas,s=>{maletas=s.data()||{};renderMaletas();});
 onSnapshot(rLista,s=>{lista=s.data()||{};renderLista();});
 
